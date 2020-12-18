@@ -27,10 +27,16 @@ export default function PizzaMaker(props) {
         <form onSubmit={(event) => {
             event.preventDefault()
             props.setOrder(form)
-            history.pushState('/confirmation')
+            history.push('/confirmation')
         }}>
             <div className='submit'>
                 <h2>Build Your Own Pizza</h2>
+                <input required onChange={handleForm} value={form.name}
+                    type='text'
+                    name='name'
+                    placeholder='Name'
+                    min={2}
+                />
                 
                 <div>
                 <h3>Choice of Size</h3>
@@ -41,6 +47,7 @@ export default function PizzaMaker(props) {
                         <option value='Small'>Small</option>
                         <option value='Medium'>Medium</option>
                         <option value='Large'>Large</option>
+                        <option value='Heart'>Heart Shaped</option>
                     </select>
                 </label>
                 </div>
@@ -78,6 +85,26 @@ export default function PizzaMaker(props) {
                     />
                     BBQ Sauce
                 </label>
+                <label>
+                    <input
+                    type='radio'
+                    name='sauce'
+                    value='stuff'
+                    onChange={handleForm}
+                    checked={form.sauce === 'stuff'}
+                    />
+                    The Stuff
+                </label>
+                <label>
+                    <input
+                    type='radio'
+                    name='sauce'
+                    value='buffalo sauce'
+                    onChange={handleForm}
+                    checked={form.sauce === 'buffalo sauce'}
+                    />
+                    Buffalo Sauce
+                </label>
                 </div>
 
                 <div>
@@ -88,7 +115,7 @@ export default function PizzaMaker(props) {
                     type='checkbox'
                     name='Pepperoni'
                     checked={form.pepperoni}
-                    onChange={handleForm}
+                    onChange={handleCheckbox}
                     />
                     Pepperoni
                 </label>
@@ -97,7 +124,7 @@ export default function PizzaMaker(props) {
                     type='checkbox'
                     name='Sausage'
                     checked={form.sausage}
-                    onChange={handleForm}
+                    onChange={handleCheckbox}
                     />
                     Sausage
                 </label>
@@ -106,7 +133,7 @@ export default function PizzaMaker(props) {
                     type='checkbox'
                     name='Bacon'
                     checked={form.bacon}
-                    onChange={handleForm}
+                    onChange={handleCheckbox}
                     />
                     Bacon
                 </label>
@@ -115,7 +142,7 @@ export default function PizzaMaker(props) {
                     type='checkbox'
                     name='Spinach'
                     checked={form.spinach}
-                    onChange={handleForm}
+                    onChange={handleCheckbox}
                     />
                     Spinach
                 </label>
@@ -124,7 +151,7 @@ export default function PizzaMaker(props) {
                     type='checkbox'
                     name='Chicken'
                     checked={form.chicken}
-                    onChange={handleForm}
+                    onChange={handleCheckbox}
                     />
                     Chicken
                 </label>
@@ -133,16 +160,25 @@ export default function PizzaMaker(props) {
                     type='checkbox'
                     name='Onions'
                     checked={form.onions}
-                    onChange={handleForm}
+                    onChange={handleCheckbox}
                     />
                     Onions
                 </label>
                 <label>
                     <input 
                     type='checkbox'
+                    name='dollars'
+                    checked={form.dollars}
+                    onChange={handleCheckbox}
+                    />
+                    Dollar Bills
+                </label>
+                <label>
+                    <input 
+                    type='checkbox'
                     name='Pepper'
                     checked={form.pepper}
-                    onChange={handleForm}
+                    onChange={handleCheckbox}
                     />
                     Green Pepper
                 </label>
@@ -151,16 +187,25 @@ export default function PizzaMaker(props) {
                     type='checkbox'
                     name='Tomatoes'
                     checked={form.tomatoes}
-                    onChange={handleForm}
+                    onChange={handleCheckbox}
                     />
                     Diced Tomatoes
                 </label>
                 <label>
                     <input 
                     type='checkbox'
+                    name='Glitter'
+                    checked={form.glitter}
+                    onChange={handleCheckbox}
+                    />
+                    Glitter
+                </label>
+                <label>
+                    <input 
+                    type='checkbox'
                     name='Olives'
                     checked={form.olives}
-                    onChange={handleForm}
+                    onChange={handleCheckbox}
                     />
                     Black Olives
                 </label>
@@ -169,7 +214,7 @@ export default function PizzaMaker(props) {
                     type='checkbox'
                     name='Pineapple'
                     checked={form.pineapple}
-                    onChange={handleForm}
+                    onChange={handleCheckbox}
                     />
                     Pineapple
                 </label>
@@ -186,7 +231,14 @@ export default function PizzaMaker(props) {
                 />
                 </div>
                 <div className='submit'>
-                <button>Add to Order</button>
+                <h3>Quantity</h3>
+                <input onChange={handleForm}
+                    type='number'
+                    name='quantity'
+                    min={1}
+                    value={form.quantity}
+                />
+                <button className='submit'>Add to Order</button>
                 </div>
             </div>
         </form>
