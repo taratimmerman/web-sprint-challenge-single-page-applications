@@ -14,7 +14,7 @@ code {
 
 #root {
   box-sizing: border-box;
-  /* background: url("oh-la-la.jpeg") center no-repeat; */
+  background: url('./Components/bg.jpg') center no-repeat;
   background-size: cover;
   min-height: 100vh;
   display: flex;
@@ -26,25 +26,28 @@ code {
 
 .App {
   padding: 20px;
-  max-width: 500px;
+  max-width: 350px;
   background: rgba(255, 255, 255, 0.95);
   box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
   text-align: center;
-  margin: 0;
+  margin: 10px;
   font-weight: 200;
 }
 
 h3, p {
-  margin: 0;
+  margin:0;
   padding: 0;
   text-align: left;
+  list-style: none;
 }
 
-label {
- margin: 10px;
+h3 {
+  border-top: 1px solid rgba(0,0,0,0.1);
+  margin-top: 30px;
+  padding: 5px;
 }
 
 input, select {
@@ -56,4 +59,10 @@ input, select {
 .submit {
   padding: 10px;
   outline: 0;
+}
+
+label {
+  flex:1;
+  display:flex;
+  flex-wrap:wrap;
 }
